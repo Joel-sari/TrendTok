@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from "@/components/header";
+import Home from "@/app/(root)/page";
 
 //Accpe
 const Layout = ({ children}: {children: React.ReactNode}) => {
@@ -8,7 +9,7 @@ const Layout = ({ children}: {children: React.ReactNode}) => {
             {/* We will add a header component later on here */}
             <Header />
             <div className="container py-10">
-
+                <Home/>
             </div>
             Layout
         </main>
