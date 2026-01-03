@@ -6,10 +6,17 @@ import InputField from "@/components/forms/InputField";
 import SelectField from "@/components/forms/SelectField";
 import {INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS} from "@/lib/constants";
 import FooterLink from "@/components/forms/FooterLink";
+import {CountrySelectField} from "@/components/forms/CountrySelectField";
+import {signUpWithEmail} from "@/lib/actions/auth.actions";
+import {useRouter} from "next/navigation";
+import {toast} from "sonner";
+
 
 
 
 const SignUp = () => {
+
+    const router = useRouter();
 
     // We are using React built in hook called "Hook Form" for more efficient form handling/submitting
     const {
@@ -32,11 +39,17 @@ const SignUp = () => {
     }, )
     const onSubmit = async(data: SignUpFormData) => {
         try {
-            console.log(data);
+            const result = await signUpWithEmail(data);
 
+            //if we receive a success as a true we can push the user to the home page
+            if (result.success) router.push('/');
         }
+
         catch (error) {
             console.error(error);
+            toast.error('Sign Up Failed', {
+                description: error instanceof Error ? error.message : 'Failed to create an account.'
+            })
         }
     }
     return (
@@ -68,7 +81,13 @@ const SignUp = () => {
                     error={errors.password}
                     validation={{required: 'Password is required' , minLength: 8}}
                 />
-
+                <CountrySelectField
+                    name="country"
+                    label="Country"
+                    control={control}
+                    error={errors.country}
+                    required
+                />
                 <SelectField
                     name="investmentGoals"
                     label="investmentGoals"

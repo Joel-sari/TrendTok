@@ -4,8 +4,13 @@ import { useForm } from 'react-hook-form';
 import {Button} from "@/components/ui/button";
 import InputField from "@/components/forms/InputField";
 import FooterLink from "@/components/forms/FooterLink";
+import {signInWithEmail, signUpWithEmail} from "@/lib/actions/auth.actions";
+import {toast} from "sonner";
+import {useRouter} from "next/navigation";
 
 const SignIn = () => {
+
+    const router  = useRouter()
     // We are using React built in hook called "Hook Form" for more efficient form handling/submitting
     const {
         register,
@@ -19,13 +24,19 @@ const SignIn = () => {
             },
         mode:'onBlur'
     }, )
-    const onSubmit = async(data: SignUpFormData) => {
+    const onSubmit = async(data: SignInFormData) => {
         try {
-            console.log(data);
+            const result = await signInWithEmail(data);
 
+            //if we receive a success as a true we can push the user to the home page
+            if (result.success) router.push('/');
         }
+
         catch (error) {
             console.error(error);
+            toast.error('Sign in Failed', {
+                description: error instanceof Error ? error.message : 'Failed to sign in'
+            })
         }
     }
     return (
