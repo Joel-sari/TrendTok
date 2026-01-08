@@ -1,6 +1,6 @@
 import { serve } from "inngest/next"
 import {inngest} from "@/lib/inngest/client";
-import {sendSignUpEmail} from "@/lib/inngest/functions";
+import {sendSignUpEmail, sendDailyNewsSummary} from "@/lib/inngest/functions";
 
 /* What this file does: we are essentially exposing our Inngest functions via a NextJS API route (makes our functions callable withion out app)
 *
@@ -9,5 +9,5 @@ import {sendSignUpEmail} from "@/lib/inngest/functions";
 *  */
 export const {GET, POST,PUT} = serve({
     client: inngest,
-    functions: [sendSignUpEmail],
+    functions: [sendSignUpEmail, sendDailyNewsSummary],
 })
