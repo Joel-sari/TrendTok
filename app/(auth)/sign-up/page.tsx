@@ -57,24 +57,24 @@ const SignUp = () => {
             <h1 className="form-title">Sign Up & Personalize</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <InputField
-                    name="Full Name"
+                    name="fullName"
                     label="Full Name"
-                    placeholder="fullName"
+                    placeholder="Enter your full name"
                     register={register}
                     error={errors.fullName}
                     validation={{required: 'Full name is required', minLength: 4}}
                 />
                 <InputField
-                    name="Email"
-                    label="email"
+                    name="email"
+                    label="Email"
                     placeholder="Enter your email"
                     register={register}
                     error={errors.email}
                     validation={{required: 'Please enter a valid email address', pattern: /^\w+@\w+\.\w+$/, message: 'Email address is required'}}
                 />
                 <InputField
-                    name="Password"
-                    label="password"
+                    name="password"
+                    label="Password"
                     placeholder="Enter a strong password"
                     type="password"
                     register={register}
@@ -82,15 +82,15 @@ const SignUp = () => {
                     validation={{required: 'Password is required' , minLength: 8}}
                 />
                 <CountrySelectField
-                    name="Country"
-                    label="country"
+                    name="country"
+                    label="Country"
                     control={control}
                     error={errors.country}
                     required
                 />
                 <SelectField
                     name="Investment Goals"
-                    label="investmentGoals"
+                    label="Investment Goals"
                     placeholder="Select your investment goal"
                     options={INVESTMENT_GOALS}
                     control={control}
