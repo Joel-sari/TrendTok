@@ -28,7 +28,7 @@ const Layout = async ({children}: {children: React.ReactNode}) => {
 
             <section className="auth-right-section">
                 <div className="z-10 relative lg:mt-4 lg:mb-16">
-                    <blockquote className="auth-blockquote"> TrendTok turned my watchlist into a winning list. Its alerts maximized my profits in an unmeasurable way </blockquote>
+                    <blockquote className="auth-blockquote"> "TrendTok turned my watchlist into a winning list. Its alerts maximized my profits in an unmeasurable way" </blockquote>
                 </div>
                 <div className=" flex item-center justify-between">
                     <div>
