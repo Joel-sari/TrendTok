@@ -42,7 +42,10 @@ const SignUp = () => {
             const result = await signUpWithEmail(data);
 
             //if we receive a success as a true we can push the user to the home page
-            if (result.success) router.push('/');
+            if (result.success) {
+                router.replace('/');
+                router.refresh();
+            }
         }
 
         catch (error) {
@@ -70,7 +73,10 @@ const SignUp = () => {
                     placeholder="Enter your email"
                     register={register}
                     error={errors.email}
-                    validation={{required: 'Please enter a valid email address', pattern: /^\w+@\w+\.\w+$/, message: 'Email address is required'}}
+                    validation={{
+                        required: 'Email is required',
+                        pattern: { value: /^\w+@\w+\.\w+$/, message: 'Please enter a valid email address' },
+                    }}
                 />
                 <InputField
                     name="password"
@@ -89,7 +95,7 @@ const SignUp = () => {
                     required
                 />
                 <SelectField
-                    name="Investment Goals"
+                    name="investmentGoals"
                     label="Investment Goals"
                     placeholder="Select your investment goal"
                     options={INVESTMENT_GOALS}
