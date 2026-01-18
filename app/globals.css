@@ -122,14 +122,24 @@
     --color-gray-500: #9095A1;
     --color-gray-400: #CCDADC;
 
-    /* Vibrant Colors */
-    --color-blue-600: #5862FF;
-    --color-yellow-400: #FDD458;
+    /* TrendTok Brand Colors (from logo) */
+    --color-brand-cyan: #0BACE2;
+    --color-brand-indigo: #3F24BC;
+    --color-brand-magenta: #D312E2;
+    --color-brand-lavender: #D469FC;
+    --color-brand-yellow: #F4E21F;
+    --color-brand-orange: #F57A18;
+    --color-brand-mint: #1EE98C;
+
+    /* Keep existing token names, but map them to the brand palette */
+    --color-blue-600: var(--color-brand-cyan);
+    --color-indigo-600: var(--color-brand-indigo);
+    --color-yellow-400: var(--color-brand-yellow);
     --color-yellow-500: #E8BA40;
-    --color-teal-400: #0FEDBE;
+    --color-teal-400: var(--color-brand-mint);
     --color-red-500: #FF495B;
-    --color-orange-500: #FF8243;
-    --color-purple-500: #D13BFF;
+    --color-orange-500: var(--color-brand-orange);
+    --color-purple-500: var(--color-brand-magenta);
 }
 
 @layer base {
@@ -146,7 +156,7 @@
         @apply mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8;
     }
     .yellow-btn {
-        @apply h-12 cursor-pointer bg-gradient-to-b from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-gray-950 font-medium text-base rounded-lg shadow-lg disabled:opacity-50;
+        @apply h-12 cursor-pointer bg-gradient-to-r from-teal-400 via-blue-600 to-purple-500 hover:brightness-110 text-white font-medium text-base rounded-lg shadow-lg disabled:opacity-50;
     }
     .home-wrapper {
         @apply text-gray-400 flex-col gap-4 md:gap-10 items-center sm:items-start;
@@ -155,10 +165,10 @@
         @apply w-full gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3;
     }
     .header {
-        @apply z-50 w-full h-[70px] bg-gray-800;
+        @apply z-50 w-full h-[90px] bg-gray-800;
     }
     .header-wrapper {
-        @apply flex justify-between items-center px-6 py-4 text-gray-500;
+        @apply flex justify-between items-center px-6  text-gray-500;
     }
     .auth-layout {
         @apply flex flex-col justify-between lg:flex-row h-screen bg-gray-900 relative overflow-hidden;
@@ -206,13 +216,13 @@
         @apply text-white cursor-pointer px-3 py-2 rounded-sm bg-gray-800 hover:!bg-gray-600;
     }
     .footer-link {
-        @apply text-gray-400 font-medium hover:text-yellow-400 hover:underline transition-colors;
+        @apply text-gray-400 font-medium hover:text-teal-400 hover:underline transition-colors;
     }
     .search-text {
-        @apply cursor-pointer hover:text-yellow-500;
+        @apply cursor-pointer hover:text-teal-400;
     }
     .search-btn {
-        @apply cursor-pointer px-4 py-2 w-fit flex items-center gap-2 text-sm md:text-base bg-yellow-500 hover:bg-yellow-500 text-black font-medium rounded;
+        @apply cursor-pointer px-4 py-2 w-fit flex items-center gap-2 text-sm md:text-base bg-gradient-to-r from-teal-400 via-blue-600 to-purple-500 hover:brightness-110 text-white font-medium rounded;
     }
     .search-dialog {
         @apply !bg-gray-800 lg:min-w-[800px] border-gray-600 fixed top-10 left-1/2 -translate-x-1/2 translate-y-10;
@@ -250,11 +260,17 @@
     .nav-list {
         @apply flex flex-col sm:flex-row p-2 gap-3 sm:gap-10 font-medium;
     }
+    .nav-list a {
+        @apply transition-colors;
+    }
+    .nav-list a:hover {
+        @apply text-indigo-600;
+    }
     .stock-details-container {
         @apply w-full grid-cols-1 gap-6 xl:grid-cols-3 space-y-6 sm:space-y-8;
     }
     .watchlist-btn {
-        @apply bg-yellow-500 text-base hover:bg-yellow-500 text-gray-900 w-full rounded h-11 font-semibold cursor-pointer;
+        @apply text-base w-full rounded h-11 font-semibold cursor-pointer text-white shadow-lg bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-500 hover:brightness-110;
     }
     .watchlist-remove {
         @apply bg-red-500! hover:bg-red-500! text-gray-900!
@@ -284,10 +300,10 @@
         @apply items-start gap-6 h-full flex-col w-full lg:col-span-1;
     }
     .watchlist-icon-btn {
-        @apply w-fit cursor-pointer hover:bg-transparent! text-gray-400 hover:text-yellow-500;
+        @apply w-fit cursor-pointer hover:bg-transparent! text-gray-400 hover:text-indigo-600;
     }
     .watchlist-icon-added {
-        @apply !text-yellow-500 hover:!text-yellow-600;
+        @apply !text-blue-600 hover:!text-indigo-600;
     }
     .watchlist-icon {
         @apply w-8 h-8 rounded-full flex items-center justify-center bg-gray-700/50;
@@ -317,7 +333,7 @@
         @apply font-medium text-base
     }
     .add-alert {
-        @apply flex text-sm items-center whitespace-nowrap gap-1.5 px-3 w-fit py-2 text-yellow-600 border border-yellow-600/20 rounded font-medium bg-transparent hover:bg-transparent cursor-pointer transition-colors;
+        @apply flex text-sm items-center whitespace-nowrap gap-1.5 px-3 w-fit py-2 text-blue-600 border border-blue-600/25 rounded font-medium bg-transparent hover:bg-transparent hover:text-indigo-600 cursor-pointer transition-colors;
     }
     .watchlist-news {
         @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
@@ -326,7 +342,7 @@
         @apply bg-gray-800 rounded-lg border w-full border-gray-600  p-4 duration-200 hover:border-gray-600 cursor-pointer;
     }
     .news-tag {
-        @apply inline-block w-fit px-2 py-1 mb-5 rounded bg-gray-600/60 text-green-500 text-sm font-mono font-medium;
+        @apply inline-block w-fit px-2 py-1 mb-5 rounded bg-gray-600/60 text-teal-400 text-sm font-mono font-medium;
     }
     .news-title {
         @apply text-lg  font-semibold text-gray-100 leading-tight mb-3 line-clamp-2;
@@ -338,7 +354,7 @@
         @apply text-gray-400 flex-1 text-base leading-relaxed mb-3 line-clamp-3;
     }
     .news-cta {
-        @apply text-sm align-bottom text-yellow-500 hover:text-gray-400;
+        @apply text-sm align-bottom text-blue-600 hover:text-indigo-600;
     }
     .alert-dialog {
         @apply bg-gray-800 border-gray-600 text-gray-400 max-w-md;
@@ -356,7 +372,7 @@
         @apply p-4 rounded-lg bg-gray-700 border border-gray-600;
     }
     .alert-name {
-        @apply mb-2 text-lg text-yellow-500 font-semibold;
+        @apply mb-2 text-lg text-blue-600 font-semibold;
     }
     .alert-details {
         @apply flex border-b pb-3 items-center justify-between gap-3 mb-2;

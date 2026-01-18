@@ -11,7 +11,13 @@ const Header = async ({user}: {user: User}) => {
         <header className="sticky top-0 header">
             <div className="container header-wrapper">
                 <Link href="/">
-                    <Image src="/assets/icons/logo.svg" alt="TrendTok logo" width={140} height={32} className="h-8 w-auto cursor-pointer" />
+                    <Image
+                        src="/assets/icons/logo.png"
+                        alt="TrendTok logo"
+                        width={300}
+                        height={60}
+                        className="h-28 w-auto cursor-pointer"
+                    />
                 </Link>
                 <nav className="hidden sm:block">
                     {/*Nav Items!*/}

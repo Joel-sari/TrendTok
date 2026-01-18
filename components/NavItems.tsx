@@ -30,7 +30,10 @@ const NavItems = ({initialStocks} :{initialStocks: StockWithWatchlistStatus[]}) 
                 // having a key in the list tag makes each one unique
                 return <li key={href}>
 
-                    <Link href={href} className={`hover:text-yellow-500 transition-colors ${ isActive(href) ? 'text-gray-100' : '' }`}>{label}</Link>
+                    <Link
+                        href={href}
+                        className={`transition-colors hover:text-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 ${isActive(href) ? 'text-gray-100' : ''}`}
+                    >{label}</Link>
                 </li>
 
             })}
