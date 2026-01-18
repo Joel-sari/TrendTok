@@ -14,9 +14,9 @@ const Header = async ({user}: {user: User}) => {
                     <Image
                         src="/assets/icons/logo.png"
                         alt="TrendTok logo"
-                        width={300}
-                        height={60}
-                        className="h-16 w-auto cursor-pointer"
+                        width={100}
+                        height={45}
+                        className="h-13 w-auto cursor-pointer"
                     />
                 </Link>
                 <nav className="hidden sm:block">
