@@ -57,7 +57,7 @@ const SignUp = () => {
             <h1 className="form-title">Sign Up & Personalize</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <InputField
-                    name="fullName"
+                    name="Full Name"
                     label="Full Name"
                     placeholder="fullName"
                     register={register}
@@ -65,16 +65,16 @@ const SignUp = () => {
                     validation={{required: 'Full name is required', minLength: 4}}
                 />
                 <InputField
-                    name="email"
-                    label="Email"
+                    name="Email"
+                    label="email"
                     placeholder="Enter your email"
                     register={register}
                     error={errors.email}
                     validation={{required: 'Please enter a valid email address', pattern: /^\w+@\w+\.\w+$/, message: 'Email address is required'}}
                 />
                 <InputField
-                    name="password"
-                    label="Password"
+                    name="Password"
+                    label="password"
                     placeholder="Enter a strong password"
                     type="password"
                     register={register}
@@ -82,14 +82,14 @@ const SignUp = () => {
                     validation={{required: 'Password is required' , minLength: 8}}
                 />
                 <CountrySelectField
-                    name="country"
-                    label="Country"
+                    name="Country"
+                    label="country"
                     control={control}
                     error={errors.country}
                     required
                 />
                 <SelectField
-                    name="investmentGoals"
+                    name="Investment Goals"
                     label="investmentGoals"
                     placeholder="Select your investment goal"
                     options={INVESTMENT_GOALS}
