@@ -63,12 +63,11 @@ export default function SearchCommand( { renderAs = 'button', label= 'Add stock'
 
     }, [])
 
-    const handleSelectStock = (value: string) => {
+    const handleSelectStock = () => {
         setOpen(false);
         setSearchTerm("");
         setStocks(initialStocks);
-
-    }
+    };
 
 
     return (
